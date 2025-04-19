@@ -51,7 +51,7 @@ oz_total = gold_price_per_oz_thb * oz_qty
 st.write(f"**{oz_qty:,.2f} troy oz of 99.99% gold =** {oz_total:,.0f} THB")
 
 # 2. Gram
-gram_qty = st.number_input("Quantity (gram)", min_value=0.0, value=1.0, step=1, key="gram_qty")
+gram_qty = st.number_input("Quantity (gram)", min_value=0.0, value=1.0, step=1.0, key="gram_qty")
 gram_total = gold_price_per_gram_thb * gram_qty
 st.write(f"**{gram_qty:,.2f} gram of 99.99% gold =** {gram_total:,.0f} THB")
 
