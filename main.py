@@ -7,8 +7,8 @@ from fetch import get_price, get_fx_to_thb
 st.title("💰 Gold Bar Cal.")
 
 # Fetch live data
-gold_price_oz_usd = get_price(GC=F)
-usd_to_thb = get_fx_to_thb(USD)
+gold_price_oz_usd = get_price("GC=F")
+usd_to_thb = get_fx_to_thb("USD")
 
 # Show fetched prices
 st.subheader("📡 Live Market Data")
