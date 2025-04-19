@@ -44,7 +44,23 @@ st.write(f"**99.99% gold:** {budget_per_gram:,.2f} grams")
 st.write(f"**96.50% gold:** {budget_per_baht:,.2f} บาท")
 
 st.subheader("📈 Reference Prices")
-st.write(f"**1 troy oz of 99.99% gold =** {gold_price_per_oz_thb:,.0f} THB")
-st.write(f"**1 gram of 99.99% gold =** {gold_price_per_gram_thb:,.0f} THB")
-st.write(f"**1 kg LBMA 99.99% gold =** {gold_price_per_gram_thb*1000:,.0f} THB")
-st.write(f"**1 บาท 96.50% gold =** {gold_price_1baht_thb:,.0f} THB (by weight)")
+
+# 1. Troy oz
+oz_qty = st.number_input("Quantity (troy oz)", min_value=0.0, value=1.0, step=0.1, key="oz_qty")
+oz_total = gold_price_per_oz_thb * oz_qty
+st.write(f"**{oz_qty:,.2f} troy oz of 99.99% gold =** {oz_total:,.0f} THB")
+
+# 2. Gram
+gram_qty = st.number_input("Quantity (gram)", min_value=0.0, value=1.0, step=0.1, key="gram_qty")
+gram_total = gold_price_per_gram_thb * gram_qty
+st.write(f"**{gram_qty:,.2f} gram of 99.99% gold =** {gram_total:,.0f} THB")
+
+# 3. Kilogram
+kg_qty = st.number_input("Quantity (kg)", min_value=0.0, value=1.0, step=0.1, key="kg_qty")
+kg_total = gold_price_per_gram_thb * 1000 * kg_qty
+st.write(f"**{kg_qty:,.2f} kg of 99.99% gold =** {kg_total:,.0f} THB")
+
+# 4. Thai baht weight
+baht_qty = st.number_input("Quantity (Thai baht gold weight)", min_value=0.0, value=1.0, step=0.1, key="baht_qty")
+baht_total = gold_price_1baht_thb * baht_qty
+st.write(f"**{baht_qty:,.2f} บาท of 96.50% gold =** {baht_total:,.0f} THB")
