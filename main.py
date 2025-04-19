@@ -56,6 +56,6 @@ gram_total = gold_price_per_gram_thb * gram_qty
 st.write(f"**{gram_qty:,.2f} gram of 99.99% gold =** {gram_total:,.0f} THB")
 
 # 3. Thai baht weight
-baht_qty = st.number_input("Quantity (Thai baht gold weight)", min_value=0.0, value=1.0, step=0.25, key="baht_qty")
+baht_qty = st.number_input("Quantity (บาท)", min_value=0.0, value=1.0, step=0.25, key="baht_qty")
 baht_total = gold_price_1baht_thb * baht_qty
-st.write(f"**{baht_qty:,.2f} บาท of 96.50% gold =** {baht_total:,.0f} THB")
+st.write(f"**{baht_qty:,.2f} บาท of 96.50% gold =** {baht_total:,.0f} THB (ไม่ใช่ราคาสมาคม)")
