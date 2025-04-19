@@ -1,23 +1,14 @@
 #main.py
 #Goldbartrading
 import streamlit as st
-from fmp_api import get_gold_price, get_usd_to_thb
+from fetch import get_price, get_fx_to_thb
 
 # App title
 st.title("💰 Gold Bar Cal.")
 
 # Fetch live data
-FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
-gold_price_oz_usd = get_gold_price(FMP_API_KEY)
-usd_to_thb = get_usd_to_thb(FMP_API_KEY)
-
-# Handle errors (returned as strings)
-if isinstance(gold_price_oz_usd, str):
-    st.error(gold_price_oz_usd)
-    gold_price_oz_usd = 0
-if isinstance(usd_to_thb, str):
-    st.error(usd_to_thb)
-    usd_to_thb = 0
+gold_price_oz_usd = get_price(GC=F)
+usd_to_thb = get_fx_to_thb(USD)
 
 # Show fetched prices
 st.subheader("📡 Live Market Data")
