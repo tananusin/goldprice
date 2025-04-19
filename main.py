@@ -46,7 +46,7 @@ st.write(f"**96.50% gold:** {budget_per_baht:,.2f} บาท")
 st.subheader("📈 Reference Prices")
 
 # 1. Troy oz
-oz_qty = st.number_input("Quantity (troy oz)", min_value=0.0, value=0.01, step=0.01, key="oz_qty")
+oz_qty = st.number_input("Quantity (troy oz)", min_value=0.0, value=0.10, step=0.10, key="oz_qty")
 oz_total = gold_price_per_oz_thb * oz_qty
 st.write(f"**{oz_qty:,.2f} troy oz of 99.99% gold =** {oz_total:,.0f} THB")
 
