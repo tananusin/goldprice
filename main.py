@@ -16,8 +16,9 @@ fx_time_th = fx_time.astimezone(ZoneInfo("Asia/Bangkok"))
 
 # Show fetched prices
 st.subheader("📡 Live Market Data")
-st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')} UCT+7)")
-st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f} (as of {fx_time_th.strftime('%Y-%m-%d %H:%M:%S')} UCT+7)")
+st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f}")
+st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f}")
+st.write(f"as of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')} (Bangkok Time, UTC+7)")
 
 # Budget
 st.subheader("📊 Budget Breakdown")
