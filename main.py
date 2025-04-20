@@ -10,14 +10,14 @@ st.title("💰 Gold Bar Cal.")
 # Fetch live data
 gold_price_oz_usd, gold_time = get_price("GC=F")
 usd_to_thb, fx_time = get_fx_to_thb("USD")
-
+# Converting to UCT+7
 gold_time_th = gold_time.astimezone(ZoneInfo("Asia/Bangkok"))
+fx_time_th = fx_time.astimezone(ZoneInfo("Asia/Bangkok"))
 
 # Show fetched prices
 st.subheader("📡 Live Market Data")
-st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time.strftime('%Y-%m-%d %H:%M:%S')})")
-st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f} (as of {fx_time.strftime('%Y-%m-%d %H:%M:%S')})")
-st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')})")
+st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')} UCT+7)")
+st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f} (as of {fx_time_th.strftime('%Y-%m-%d %H:%M:%S')} UCT+7)")
 
 # Budget
 st.subheader("📊 Budget Breakdown")
