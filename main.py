@@ -2,6 +2,7 @@
 #Goldbartrading
 import streamlit as st
 from fetch import get_price, get_fx_to_thb
+from zoneinfo import ZoneInfo
 
 # App title
 st.title("💰 Gold Bar Cal.")
@@ -10,10 +11,13 @@ st.title("💰 Gold Bar Cal.")
 gold_price_oz_usd, gold_time = get_price("GC=F")
 usd_to_thb, fx_time = get_fx_to_thb("USD")
 
+gold_time_th = gold_time.astimezone(ZoneInfo("Asia/Bangkok"))
+
 # Show fetched prices
 st.subheader("📡 Live Market Data")
 st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time.strftime('%Y-%m-%d %H:%M:%S')})")
 st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f} (as of {fx_time.strftime('%Y-%m-%d %H:%M:%S')})")
+st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')})")
 
 # Budget
 st.subheader("📊 Budget Breakdown")
