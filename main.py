@@ -7,15 +7,13 @@ from fetch import get_price, get_fx_to_thb
 st.title("💰 Gold Bar Cal.")
 
 # Fetch live data
-gold_price_oz_usd = get_price("GC=F")
-usd_to_thb = get_fx_to_thb("USD")
+gold_price_oz_usd, gold_time = get_price("GC=F")
+usd_to_thb, fx_time = get_fx_to_thb("USD")
 
 # Show fetched prices
 st.subheader("📡 Live Market Data")
-st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f}")
-st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f}")
-# gold_price_oz_usd = st.number_input("Gold spot 99.99% 1 troy oz (USD)", value=gold_price_oz_usd, format="%.2f") # optional manual override
-# usd_to_thb = st.number_input("USD/THB exchange rate", value=usd_to_thb, format="%.2f") # optional manual override
+st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f} (as of {gold_time.strftime('%Y-%m-%d %H:%M:%S')})")
+st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f} (as of {fx_time.strftime('%Y-%m-%d %H:%M:%S')})")
 
 # Budget
 st.subheader("📊 Budget Breakdown")
