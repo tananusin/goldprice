@@ -18,14 +18,7 @@ fx_time_th = fx_time.astimezone(ZoneInfo("Asia/Bangkok"))
 st.subheader("📡 Live Market Data")
 st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f}")
 st.write(f"Fetched USD to THB Exchange Rate: {usd_to_thb:.2f}")
-st.write(f"ราคาทอง 1 บาท: {gold_price_1baht_thb:.0f} THB (ไม่ใช่ราคาสมาคม)")
 st.write(f"As of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')} (Bangkok Time, UTC+7)")
-
-# Budget
-st.subheader("📊 Budget Breakdown")
-
-# User Input: Budget
-budget = st.number_input("Enter your budget in THB", value=0, step=1000)
 
 # Conversion constants
 grams_per_oz = 31.1035
@@ -36,6 +29,13 @@ purity_965 = 0.965
 gold_price_per_oz_thb = gold_price_oz_usd * usd_to_thb
 gold_price_per_gram_thb = gold_price_per_oz_thb / grams_per_oz
 gold_price_1baht_thb = gold_price_per_gram_thb * grams_per_baht * purity_965
+st.write(f"ราคาทอง 1 บาท: {gold_price_1baht_thb:.0f} THB (ไม่ใช่ราคาสมาคม)")
+
+# Budget
+st.subheader("📊 Budget Breakdown")
+
+# User Input: Budget
+budget = st.number_input("Enter your budget in THB", value=0, step=1000)
 
 # Budget conversion
 budget_per_oz = budget / gold_price_per_oz_thb
