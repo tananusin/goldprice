@@ -48,7 +48,7 @@ st.write(f"**99.99% gold:** {budget_per_oz:,.2f} troy oz")
 st.write(f"**99.99% gold:** {budget_per_gram:,.2f} grams")
 st.write(f"**96.50% gold:** {budget_per_baht:,.2f} บาท")
 
-st.subheader("📈 Reference Prices")
+st.subheader("📈 Prices Per Weight")
 
 # 1. Troy oz
 oz_qty = st.number_input("Quantity (troy oz)", min_value=0.0, value=0.10, step=0.10, key="oz_qty")
@@ -63,4 +63,4 @@ st.write(f"**{gram_qty:,.2f} gram of 99.99% gold =** {gram_total:,.0f} THB")
 # 3. Thai baht weight
 baht_qty = st.number_input("Quantity (บาท)", min_value=0.0, value=0.25, step=0.25, key="baht_qty")
 baht_total = gold_price_1baht_thb * baht_qty
-st.write(f"**{baht_qty:,.2f} บาท of 96.50% gold =** {baht_total:,.0f} THB (ไม่ใช่ราคาสมาคม)")
+st.write(f"**{baht_qty:,.2f} บาท of 96.50% gold =** {baht_total:,.0f} THB")
