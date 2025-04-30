@@ -15,7 +15,6 @@ if gold_price_oz_usd and gold_time:
     # Converting to UTC+7
     gold_time_th = gold_time.astimezone(ZoneInfo("Asia/Bangkok"))
     st.write(f"Fetched Gold Price (USD/OZ): {gold_price_oz_usd:,.0f}")
-    st.write(f"As of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')} (Bangkok Time, UTC+7)")
 else:
     st.error("Failed to fetch gold price data.")
 
@@ -38,6 +37,7 @@ if gold_price_oz_usd and usd_to_thb:
     gold_price_1baht_thb = gold_price_per_gram_thb * grams_per_baht * purity_965
 
     st.write(f"ราคาทอง 1 บาท: {gold_price_1baht_thb:,.0f} THB (ไม่ใช่ราคาสมาคม)")
+    st.write(f"As of {gold_time_th.strftime('%Y-%m-%d %H:%M:%S')} (Bangkok Time, UTC+7)")
 else:
     st.error("Calculation not possible due to missing data.")
 
