@@ -7,8 +7,8 @@ st.title("💰 Gold Bar Cal.")
 
 # Fetch live data
 FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
-gold_price_oz_usd = get_gold_price(FMP_API_KEY)
-usd_to_thb = get_usd_to_thb(FMP_API_KEY)
+gold_price_oz_usd, gold_time = get_gold_price(FMP_API_KEY)
+usd_to_thb, fx_time = get_usd_to_thb(FMP_API_KEY)
 
 # Check if data is successfully fetched
 if gold_price_oz_usd and gold_time:
