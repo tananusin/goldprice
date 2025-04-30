@@ -1,4 +1,4 @@
+yahooquery
 streamlit
 pandas
-yfinance
-matplotlib
+numpy
