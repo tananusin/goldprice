@@ -9,8 +9,8 @@ try:
 except KeyError as e:
     st.write(f"Error: Key not found: {e}")
 
-def get_gold_price():
-    url = f"https://financialmodelingprep.com/api/v3/quote/XAUUSD?apikey={FMP_API_KEY}"
+def get_gold_price(api_key):
+    url = f"https://financialmodelingprep.com/api/v3/quote/XAUUSD?apikey={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
         try:
@@ -22,8 +22,8 @@ def get_gold_price():
             return None, None
     return None, None
 
-def get_usd_to_thb():
-    url = f"https://financialmodelingprep.com/api/v3/fx/USDTHB?apikey={FMP_API_KEY}"
+def get_usd_to_thb(api_key):
+    url = f"https://financialmodelingprep.com/api/v3/fx/USDTHB?apikey={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
         try:
