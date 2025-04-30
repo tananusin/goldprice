@@ -1,6 +1,5 @@
 # fetch.py
-
-import yfinance as yf
+import requests
 from datetime import datetime
 
 FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
