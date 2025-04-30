@@ -8,8 +8,8 @@ from zoneinfo import ZoneInfo
 st.title("💰 Gold Bar Cal.")
 
 # Fetch live data
-gold_price_oz_usd, gold_time = get_price()
-usd_to_thb, fx_time = get_fx_to_thb()
+gold_price_oz_usd, gold_time = get_gold_price()
+usd_to_thb, fx_time = get_usd_to_thb()
 
 # Check if data is successfully fetched
 if gold_price_oz_usd is not None and gold_time is not None:
