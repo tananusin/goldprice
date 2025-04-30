@@ -6,7 +6,7 @@ from zoneinfo import ZoneInfo
 st.title("💰 Gold Bar Cal.")
 
 # Ask for the password in the sidebar
-password = st.sidebar.text_input("Enter the password to access the API:", type="password")
+password = st.text_input("Enter the password to access the API:", type="password")
 
 # Validate the password
 if password == st.secrets["credentials"]["app_password"]:
