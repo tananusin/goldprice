@@ -2,7 +2,12 @@
 import requests
 from datetime import datetime
 
-FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
+try:
+    # Attempt to access the API key from Streamlit secrets
+    FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
+    st.write("API Key loaded successfully!")
+except KeyError as e:
+    st.write(f"Error: Key not found: {e}")
 
 def get_gold_price():
     url = f"https://financialmodelingprep.com/api/v3/quote/XAUUSD?apikey={FMP_API_KEY}"
