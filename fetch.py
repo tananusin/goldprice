@@ -1,25 +1,34 @@
 # fetch.py
+
 import yfinance as yf
 from datetime import datetime
 
-def get_price(symbol):
-    """Fetch price data using YFinance"""
-    symbol_clean = str(symbol).strip().upper()
-    try:
-        ticker = yf.Ticker(symbol_clean)
-        price = ticker.info['regularMarketPrice']  # YFinance uses this structure
-        return price, datetime.now()
-    except Exception as e:
-        print(f"Error fetching data for {symbol} from YFinance: {e}")
-        return None, None
+FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
 
-def get_fx_to_thb(currency):
-    """Fetch FX rate data using YFinance"""
-    try:
-        pair = f"{currency}THB=X"
-        ticker = yf.Ticker(pair)
-        fx_rate = ticker.history(period="1d")["Close"].iloc[-1]  # YFinance requires historical data
-        return fx_rate, datetime.now()
-    except Exception as e:
-        print(f"Error fetching FX data for {currency} to THB from YFinance: {e}")
-        return None, None
+def get_price():
+    url = f"https://financialmodelingprep.com/api/v3/quote/XAUUSD?apikey={api_key}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            if isinstance(data, list) and len(data) > 0:
+                return float(data[0].get("price", 0)), datetime.now()
+        except Exception as e:
+            print(f"Error fetching data for {symbol} from YFinance: {e}")
+            return None, None
+    return 0
+
+def get_fx_to_thb():
+    url = f"https://financialmodelingprep.com/api/v3/fx/USDTHB?apikey={api_key}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        try:
+            data = response.json()
+            if isinstance(data, list) and len(data) > 0:
+                return float(data[0].get("bid", 0)), datetime.now()
+            elif isinstance(data, dict):
+                return float(data.get("bid", 0)), datetime.now()
+        except Exception as e:
+            print(f"Error fetching FX data for {currency} to THB from YFinance: {e}")
+            return None, None
+    return 0
