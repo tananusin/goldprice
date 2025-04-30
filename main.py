@@ -10,7 +10,7 @@ password = st.text_input("Enter the password to access the API:", type="password
 
 # Validate the password
 if password == st.secrets["credentials"]["app_password"]:
-    st.sidebar.success("Password correct! Access granted.")
+    st.success("Password correct! Access granted.")
     
     # Fetch live data from the API after successful password validation
     FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
@@ -85,4 +85,4 @@ if password == st.secrets["credentials"]["app_password"]:
     st.write(f"**{baht_qty:,.2f} บาท of 96.50% gold =** {baht_total:,.0f} THB")
 
 else:
-    st.sidebar.error("Incorrect password. Access denied.")
+    st.error("Incorrect password. Access denied.")
