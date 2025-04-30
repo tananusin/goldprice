@@ -1,7 +1,7 @@
 #main.py
 
 import streamlit as st
-from fetch import get_price, get_fx_to_thb
+from fetch import get_gold_price, get_usd_to_thb
 from zoneinfo import ZoneInfo
 
 # App title
