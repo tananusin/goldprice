@@ -5,7 +5,7 @@ from datetime import datetime
 
 FMP_API_KEY = st.secrets["api_keys"]["fmp_api_key"]
 
-def get_price():
+def get_gold_price():
     url = f"https://financialmodelingprep.com/api/v3/quote/XAUUSD?apikey={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -18,7 +18,7 @@ def get_price():
             return None, None
     return 0
 
-def get_fx_to_thb():
+def get_usd_to_thb():
     url = f"https://financialmodelingprep.com/api/v3/fx/USDTHB?apikey={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
